@@ -6,23 +6,25 @@ import Registration from "../pages/Registration/Registration";
 import ErrorPage from "../pages/Errorpage/ErrorPage";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<Main></Main>,
-      errorElement:<ErrorPage></ErrorPage>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-            path:'/login',
-            element:<Registration></Registration>
-        }
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/registration",
+        element: <Registration></Registration>,
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      }
+    ],
+  },
+]);
 
-
-      ]
-    },
-  ]);
-
-  export default router;
+export default router;

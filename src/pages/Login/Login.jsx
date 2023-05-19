@@ -3,19 +3,15 @@ import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { user } = useContext(AuthContext);
 
-
-    const{user} = useContext(AuthContext);
-
-
-    const handleLogin = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const email= form.email.value;
-        const  password = form.password.value;
-        console.log(email,password,user);
-    }
-
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password, user);
+  };
 
   return (
     <div className=" font-serif">
@@ -59,14 +55,20 @@ const Login = () => {
                     </a>
                   </label>
                 </div>
-              <div className="form-control mt-6">
-                <input type="submit"  className="btn btn-primary" value=" Login " />
-              </div>
+                <div className="form-control mt-6">
+                  <input
+                    type="submit"
+                    className="btn btn-primary"
+                    value=" Login "
+                  />
+                </div>
               </form>
             </div>
             <div className="relative my-2 h-10">
-             <h1 className="text-center rounded-full  absolute left-1/2 -top-1/2 mx-auto p-2 text-white  bg-blue-700 w-10">OR</h1> 
-             <hr  className=" border-2  mx-auto  border-blue-700"/>
+              <h1 className="text-center rounded-full  absolute left-1/2 -top-1/2 mx-auto p-2 text-white  bg-blue-700 w-10">
+                OR
+              </h1>
+              <hr className=" border-2  mx-auto  border-blue-700" />
             </div>
             <SocialLogin></SocialLogin>
           </div>
