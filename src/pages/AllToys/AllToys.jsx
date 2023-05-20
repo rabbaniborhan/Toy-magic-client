@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState();
   const[searchText,setSearchText]=useState("")
-  console.log(searchText);
+ 
 
   useEffect(() => {
     fetch(`http://localhost:5000/alltoys`)
@@ -12,6 +13,17 @@ const AllToys = () => {
         setToys(data);
       });
   }, []);
+
+
+  const handleSearch =()=>{
+
+    fetch(`http://localhost:5000/toysSearchBytitle/${searchText}`)
+    .then((res)=>res.json())
+    .then((data)=>{
+        setToys(data);
+    })
+
+  }
 
  
 
@@ -32,6 +44,7 @@ const AllToys = () => {
               placeholder="Search"
             />
             <input
+            onClick={handleSearch}
               type="submit"
               value="Search"
               className="p-2 text-white bg-blue-600 rounded-lg my-4 mx-2"
@@ -57,11 +70,11 @@ const AllToys = () => {
                   <tr key={index} className={index %2==0 ?"active":""}>
                     <th>{index + 1}</th>
                     <th>{toy.toyname}</th>
-                    <th>{toy.sallerName}</th>
+                    <th>{toy.sallerName}</th>    
                     <th>${toy.price}</th>
                     <th>{toy.quantity}</th>
                     <th>{toy.category}</th>
-                    <th></th>
+                    <th> <Link to={`/toy/${toy._id}`}> <button className="btn btn-primary">View Details</button></Link></th>
                   </tr>
                 ))}
               </tbody>

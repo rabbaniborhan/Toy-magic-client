@@ -13,8 +13,8 @@ const Navbar = () => {
     <div className=" bg-black text-white">
       <div className="navbar justify-center w-4/5 mx-auto">
         <div className="navbar-start">
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            daisyUI
+          <Link to="/" className="btn italic text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text btn-ghost normal-case text-2xl font-bold logo">
+          Toy Magic
           </Link>
         </div>
         <div className="navbar-center flex flex-col items-center justify-center md:flex-row gap-4">
