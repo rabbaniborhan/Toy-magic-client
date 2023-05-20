@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const { user } = useContext(AuthContext);
@@ -50,9 +51,7 @@ const Login = () => {
                     className="input input-bordered"
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
+                   <p>Are you new? <Link to='/registration' className='text-blue-700 underline'> register here..</Link></p>
                   </label>
                 </div>
                 <div className="form-control mt-6">

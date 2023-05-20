@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
-  const { user, createUser, profileUpdate } = useContext(AuthContext);
+  const {  createUser, profileUpdate } = useContext(AuthContext);
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
 
@@ -17,7 +18,7 @@ const Registration = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     const name = form.name.value;
-    console.log(email, password, user, photo, name);
+  
 
     if (!/(?=.*[0-9].*[0-9])/.test(password)) {
       setError("Please add at least two numbers");
@@ -101,9 +102,7 @@ const Registration = () => {
                       className="input input-bordered"
                     />
                     <label className="label">
-                      <a href="#" className="label-text-alt link link-hover">
-                        Forgot password?
-                      </a>
+                    <p> Already Have an Account? <Link to="/login" className='text-blue-700 underline'>Login</Link></p>
                     </label>
                   </div>
                   <div className="form-control mt-6">

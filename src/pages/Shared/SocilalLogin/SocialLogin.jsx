@@ -1,14 +1,31 @@
-
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const SocialLogin = () => {
-    return (
-        <div className="w-4/5 mx-auto mb-4">
-           <div className="flex btn btn-block btn-primary gap-4">
-            <img src="https://w7.pngwing.com/pngs/63/1016/png-transparent-google-logo-google-logo-g-suite-chrome-text-logo-chrome.png" alt="" className="w-8 h-8  rounded-full" />
-            <h1 className="">Continue with Google</h1>
-           </div>
-        </div>
-    );
+  const { googleLogin } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result=>console.log(result.user))
+    .catch(error=>console.log(error)
+    )
+  };
+
+  return (
+    <div className="w-4/5 mx-auto mb-4">
+      <div
+        className="flex flex-row md:flex-col h-20 md:h-0 btn btn-block btn-primary gap-4"
+        onClick={handleGoogleLogin}
+      >
+        <img
+          src="https://w7.pngwing.com/pngs/63/1016/png-transparent-google-logo-google-logo-g-suite-chrome-text-logo-chrome.png"
+          alt=""
+          className="w-8 h-8  rounded-full"
+        />
+        <h1 className="">Continue with Google</h1>
+      </div>
+    </div>
+  );
 };
 
 export default SocialLogin;
