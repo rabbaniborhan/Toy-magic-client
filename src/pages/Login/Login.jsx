@@ -1,17 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user } = useContext(AuthContext);
+  const { user,login } = useContext(AuthContext);
+  const [error,setError]= useState("")
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password, user);
+    
+   if(email,password){
+    login(email,password)
+    // eslint-disable-next-line no-unused-vars
+    .then(result=>{
+      navigate(from, { replace: true })
+      Swal.fire(
+        'Good job!',
+        'LogIn Successfull!',
+        'success'
+      )
+    })
+    .catch((error) => setError(error.message));
+   }
   };
 
   return (
@@ -28,6 +48,8 @@ const Login = () => {
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
               <h1 className="text-3xl font-semibold py-4">Login</h1>
+              <p className="text-red-700">{error}</p>
+               
               <form onSubmit={handleLogin}>
                 <div className="form-control">
                   <label className="label">

@@ -1,12 +1,28 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleLogin } = useContext(AuthContext);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
+
+
   const handleGoogleLogin = () => {
     googleLogin()
-    .then(result=>console.log(result.user))
+    // eslint-disable-next-line no-unused-vars
+    .then(result=>{
+      navigate(from, { replace: true })
+      Swal.fire(
+        'Good job!',
+        'LogIn Successfull!',
+        'success'
+      )
+    })
     .catch(error=>console.log(error)
     )
   };
