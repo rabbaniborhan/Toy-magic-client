@@ -43,120 +43,125 @@ const AddToys = () => {
   };
 
   return (
-    <div className="flex w-4/5 mx-auto  my-16 items-center justify-center gap-4">
-      <div className="w-1/2 border border-gray-300 rounded-lg shadow shadow-gray-300 p-4">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex  items-center gap-4">
-            <div className="mx-2">
-              <label className="font-semibold font-sans text-blue-600 text-xl">Toy Name:</label>
-              <input
-                type="text"
-                {...register("toyname", { required: true, maxLength: 20 })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="Toy name"
-              />
-            </div>
-            <div className="mx-2">
-              
-              <label className="font-semibold font-sans text-blue-600 text-xl"> Saller Name:</label>
-              <input
-                type="text"
-                {...register("sallerName", { required: true, maxLength: 20 })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="Saller name"
-              />
-            </div>
-          </div>
-          <div className="flex  items-center gap-4 my-4">
-            <div className="mx-2">
-              <label className="font-semibold font-sans text-blue-600 text-xl">Photo:</label>
-              <input
-                type="text"
-                {...register("photo", { required: true })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="Toy photo"
-              />
-            </div>
-            <div className="mx-2">
-              
-              <label className="font-semibold font-sans text-blue-600 text-xl"> Saller email:</label>
-              <input
-                type="email"
-                {...register("salleEmail", { required: true })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="Saller email"
-                value={user?.email}
-              />
-            </div>
-          </div>
-          <div className="flex  items-center gap-4 my-4">
-            <div className="mx-2">
-              <label className="font-semibold font-sans text-blue-600 text-xl">Price:</label>
-              <input
-                type="number"
-                {...register("price", { required: true })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="price"
-              />
-            </div>
-            <div className="mx-2">
-              
-              <label className="font-semibold font-sans text-blue-600 text-xl"> Rating:</label>
-              <input
-                type="number"
-                {...register("rating", { required: true })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="rating"
-              />
-            </div>
-          </div>
-          <div className="flex  items-center gap-4 my-4">
-            <div className="mx-2 w-1/2">
-              <label className="font-semibold font-sans text-blue-600 text-xl">Category:</label>
-              <select
-                className=" border w-full  p-2 rounded-lg border-black"
-                {...register("category")}
-              >
-                <option value="Sports Car">sports Car</option>
-                <option value="Truck">Truck</option>
-                <option value="Regular Car">Regular Car</option>
-                <option value=" Mini Police Car"> Mini Police Car</option>
-              </select>
-            </div>
-            <div className="mx-2">
-              
-              <label className="font-semibold font-sans text-blue-600 text-xl"> Quantity:</label>
-              <input
-                type="number"
-                {...register("quantity", { required: true })}
-                className="border  p-2 rounded-lg border-black"
-                placeholder="Quantity"
-              />
-            </div>
-          </div>
-          <div>
-            <div className="mx-2">
-              
-              <label className="font-semibold font-sans text-blue-600 text-xl"> Details:</label>
-              <input
-                type="text"
-                {...register("details", { required: true })}
-                className="border w-full h-20  p-2 rounded-lg border-black"
-                placeholder="details"
-              />
-            </div>
-          </div>
-          <div className="w-24  my-6 mx-auto">
-            <input type="submit" className="btn btn-primary my-2" />
-          </div>
-        </form>
-      </div>
-      <div className="w-1/2">
-        <img
-          src="https://thumbs.dreamstime.com/b/boy-toy-cars-cartoon-illustration-happy-62798882.jpg"
-          alt=""
-        />
-      </div>
+    
+    <div>
+       <h1 className=" py-14 text-3xl font-sans font-bold text-blue-700 text-center">Add Toy</h1>
+      <div className="flex w-4/5 mx-auto  my-16 items-center justify-center gap-4">
+       
+       <div className="w-1/2 border border-gray-300 rounded-lg shadow shadow-gray-300 p-4">
+         <form onSubmit={handleSubmit(onSubmit)}>
+           <div className="flex  items-center gap-4">
+             <div className="mx-2">
+               <label className="font-semibold font-sans text-blue-600 text-xl">Toy Name:</label>
+               <input
+                 type="text"
+                 {...register("toyname", { required: true, maxLength: 20 })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="Toy name"
+               />
+             </div>
+             <div className="mx-2">
+               
+               <label className="font-semibold font-sans text-blue-600 text-xl"> Saller Name:</label>
+               <input
+                 type="text"
+                 {...register("sallerName", { required: true, maxLength: 20 })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="Saller name"
+               />
+             </div>
+           </div>
+           <div className="flex  items-center gap-4 my-4">
+             <div className="mx-2">
+               <label className="font-semibold font-sans text-blue-600 text-xl">Photo:</label>
+               <input
+                 type="text"
+                 {...register("photo", { required: true })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="Toy photo"
+               />
+             </div>
+             <div className="mx-2">
+               
+               <label className="font-semibold font-sans text-blue-600 text-xl"> Saller email:</label>
+               <input
+                 type="email"
+                 {...register("salleEmail", { required: true })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="Saller email"
+                 value={user?.email}
+               />
+             </div>
+           </div>
+           <div className="flex  items-center gap-4 my-4">
+             <div className="mx-2">
+               <label className="font-semibold font-sans text-blue-600 text-xl">Price:</label>
+               <input
+                 type="number"
+                 {...register("price", { required: true })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="price"
+               />
+             </div>
+             <div className="mx-2">
+               
+               <label className="font-semibold font-sans text-blue-600 text-xl"> Rating:</label>
+               <input
+                 type="number"
+                 {...register("rating", { required: true })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="rating"
+               />
+             </div>
+           </div>
+           <div className="flex  items-center gap-4 my-4">
+             <div className="mx-2 w-1/2">
+               <label className="font-semibold font-sans text-blue-600 text-xl">Category:</label>
+               <select
+                 className=" border w-full  p-2 rounded-lg border-black"
+                 {...register("category")}
+               >
+                 <option value="Sports Car">sports Car</option>
+                 <option value="Truck">Truck</option>
+                 <option value="Regular Car">Regular Car</option>
+                 <option value=" Mini Police Car"> Mini Police Car</option>
+               </select>
+             </div>
+             <div className="mx-2">
+               
+               <label className="font-semibold font-sans text-blue-600 text-xl"> Quantity:</label>
+               <input
+                 type="number"
+                 {...register("quantity", { required: true })}
+                 className="border  p-2 rounded-lg border-black"
+                 placeholder="Quantity"
+               />
+             </div>
+           </div>
+           <div>
+             <div className="mx-2">
+               
+               <label className="font-semibold font-sans text-blue-600 text-xl"> Details:</label>
+               <input
+                 type="text"
+                 {...register("details", { required: true })}
+                 className="border w-full h-20  p-2 rounded-lg border-black"
+                 placeholder="details"
+               />
+             </div>
+           </div>
+           <div className="w-24  my-6 mx-auto">
+             <input type="submit" className="btn btn-primary my-2" />
+           </div>
+         </form>
+       </div>
+       <div className="w-1/2">
+         <img
+           src="https://thumbs.dreamstime.com/b/boy-toy-cars-cartoon-illustration-happy-62798882.jpg"
+           alt=""
+         />
+       </div>
+     </div>
     </div>
   );
 };

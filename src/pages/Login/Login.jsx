@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user,login } = useContext(AuthContext);
+  const {login } = useContext(AuthContext);
   const [error,setError]= useState("")
 
   const location = useLocation();
