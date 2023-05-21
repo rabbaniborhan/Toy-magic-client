@@ -14,8 +14,8 @@ const Banner = () => {
         </div>
         <div className="basis-1/2">
           <img
-            src="https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX5231682.jpg"
-            className="w-1/2 ml-32"
+            src="https://thumbs.dreamstime.com/b/boy-toy-cars-cartoon-illustration-happy-62798882.jpg"
+            className="w-1/2 h-72 ml-32"
             alt=""
           />
         </div>

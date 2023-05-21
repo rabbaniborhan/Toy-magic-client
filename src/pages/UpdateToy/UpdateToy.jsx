@@ -8,8 +8,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const UpdateToy = () => {
     const { id } = useParams();
     const {user}=useContext(AuthContext)
+    const [toy, setToy] = useState({});
 
-    const [toy, setToy] = useState([]);
+    const [control,setControl]=useState(false)
+    
+    
+  
+   
 
     const {
         register,
@@ -23,9 +28,18 @@ const UpdateToy = () => {
 
       const onSubmit = (data) => {
         console.log(data);
-       
-        
-          // eslint-disable-next-line no-undef
+        fetch(`http://localhost:5000/updateToy/${data._id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.modifiedCount > 0) {
+              setControl(!control);
+            }
+            console.log(result);
+          });
         //   form.reset();
     
       };
@@ -36,7 +50,17 @@ const UpdateToy = () => {
         .then((data) => {
           setToy(data);
         });
-    }, []);
+    }, [user, control]);
+
+
+   
+
+
+    
+
+    
+
+    
 
 
     return (
@@ -48,10 +72,13 @@ const UpdateToy = () => {
               <label className="font-semibold font-sans text-blue-600 text-xl">Toy Name:</label>
               <input
                 type="text"
-                {...register("toyname", { maxLength: 20 })}
+                {...register("toyname", )}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="Toy name"
-                defaultValue={toy.toyname}
+                value={toy.toyname}
+               
+                
+               
               />
             </div>
             <div className="mx-2">
@@ -62,7 +89,7 @@ const UpdateToy = () => {
                 {...register("sallerName", {  maxLength: 20 })}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="Saller name"
-                defaultValue={toy.sallerName}
+                value={toy.sallerName}
               />
             </div>
           </div>
@@ -74,7 +101,7 @@ const UpdateToy = () => {
                 {...register("photo", )}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="Toy photo"
-                defaultValue={toy.photo}
+                value={toy.photo}
               />
             </div>
             <div className="mx-2">
@@ -94,10 +121,10 @@ const UpdateToy = () => {
               <label className="font-semibold font-sans text-blue-600 text-xl">Price:</label>
               <input
                 type="number"
-                {...register("price", )}
+                {...register("price",{required:true, } )}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="price"
-                defaultValue={toy.price}
+                
               />
             </div>
             <div className="mx-2">
@@ -105,10 +132,21 @@ const UpdateToy = () => {
               <label className="font-semibold font-sans text-blue-600 text-xl"> Rating:</label>
               <input
                 type="number"
-                {...register("rating", )}
+                {...register("rating",{required:true, } )}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="rating"
-                defaultValue={toy.rating}
+              
+              />
+            </div>
+            <div className="mx-2 hidden">
+              
+              <label className="font-semibold font-sans  text-blue-600 text-xl"> Rating:</label>
+              <input
+                type="text"
+                {...register("_id",{required:true, } )}
+                className="border  p-2 rounded-lg border-black"
+                placeholder="rating"
+                value={toy._id}
               />
             </div>
           </div>
@@ -130,10 +168,10 @@ const UpdateToy = () => {
               <label className="font-semibold font-sans text-blue-600 text-xl"> Quantity:</label>
               <input
                 type="number"
-                {...register("quantity", )}
+                {...register("quantity", {required:true,  } )}
                 className="border  p-2 rounded-lg border-black"
                 placeholder="Quantity"
-                defaultValue={toy.quantity}
+               
               />
             </div>
           </div>
@@ -146,7 +184,7 @@ const UpdateToy = () => {
                 {...register("details",)}
                 className="border w-full h-20  p-2 rounded-lg border-black"
                 placeholder="details"
-                defaultValue={toy.details}
+                value={toy.details}
               />
             </div>
           </div>
