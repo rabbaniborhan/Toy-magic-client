@@ -3,10 +3,12 @@ import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const {login } = useContext(AuthContext);
   const [error,setError]= useState("")
+  useTitle('Login')
 
   const location = useLocation();
   const navigate = useNavigate();

@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddToys = () => {
 
-
+   useTitle("addToys")
     const {user}=useContext(AuthContext)
   const {
     register,

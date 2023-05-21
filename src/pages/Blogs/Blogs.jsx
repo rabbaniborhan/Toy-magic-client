@@ -1,4 +1,8 @@
+import useTitle from "../../hooks/useTitle";
+
 const Blogs = () => {
+
+  useTitle('blogs')
   return (
     <div className="relative">
       <div className=" bg-slate-100 text-center p-20">

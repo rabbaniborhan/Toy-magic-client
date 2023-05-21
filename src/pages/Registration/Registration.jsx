@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import SocialLogin from "../Shared/SocilalLogin/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Registration = () => {
   const {  createUser, profileUpdate } = useContext(AuthContext);
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
+  useTitle('tegistration')
 
   const handleRegistration = () => {
     event.preventDefault();

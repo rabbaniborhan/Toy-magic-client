@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const Details = () => {
   const { id } = useParams();
+  useTitle('details');
 
   const [toy, setToy] = useState([]);
 

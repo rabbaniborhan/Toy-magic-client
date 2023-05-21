@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 // import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 
 const UpdateToy = () => {
     const { id } = useParams();
     const {user}=useContext(AuthContext)
     const [toy, setToy] = useState({});
+    useTitle('update')
 
     const [control,setControl]=useState(false)
     
