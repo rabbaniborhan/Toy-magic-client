@@ -19,7 +19,7 @@ const AddToys = () => {
 
 
   const onSubmit = (data,event) => {
-    fetch("http://localhost:5000/add-toys", {
+    fetch("https://toys-maker-server.vercel.app/add-toys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -122,10 +122,10 @@ const AddToys = () => {
                  className=" border w-full  p-2 rounded-lg border-black"
                  {...register("category")}
                >
-                 <option value="Sports Car">sports Car</option>
+                 <option value="Sports">sports Car</option>
                  <option value="Truck">Truck</option>
-                 <option value="Regular Car">Regular Car</option>
-                 <option value=" Mini Police Car"> Mini Police Car</option>
+                 <option value="Regular">Regular Car</option>
+                 <option value="Mini"> Mini Police Car</option>
                </select>
              </div>
              <div className="mx-2">

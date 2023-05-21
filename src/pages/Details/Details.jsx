@@ -11,7 +11,7 @@ const Details = () => {
   const [toy, setToy] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toy/${id}`)
+    fetch(`https://toys-maker-server.vercel.app/toy/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setToy(data);
@@ -30,7 +30,7 @@ const Details = () => {
     quantity,
   } = toy;
 
-  console.log(toy);
+ 
 
   return (
     <div className="w-4/5 mx-auto my-20">

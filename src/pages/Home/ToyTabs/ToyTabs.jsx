@@ -8,7 +8,7 @@ const ToyTabs = () => {
   const [activeTab, setActiveTab] = useState("Sports");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoys/${activeTab}`)
+    fetch(`https://toys-maker-server.vercel.app/alltoys`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -18,6 +18,9 @@ const ToyTabs = () => {
 
    
   
+
+  const result =toys.filter(toy=>toy.category==activeTab)
+  console.log(result)
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -34,8 +37,8 @@ console.log(activeTab);
         <TabList className="bg-blue-600 pt-2 my-3 text-white">
           <Tab onClick={() => handleTabClick("Sports")}>Sports</Tab>
           <Tab onClick={() => handleTabClick("Truck")}>Truck</Tab>
-          <Tab onClick={() => handleTabClick("Regular Car")}> Regular Car</Tab>
-          <Tab onClick={() => handleTabClick("Mini Police Car")}> Mini Police Car</Tab>
+          <Tab onClick={() => handleTabClick("Regular")}>Regular Car</Tab>
+          <Tab onClick={() => handleTabClick("Mini")}> Mini Police Car</Tab>
         </TabList>
 
         <TabPanel>
