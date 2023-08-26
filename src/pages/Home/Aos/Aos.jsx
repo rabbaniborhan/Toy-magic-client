@@ -11,7 +11,9 @@ const Aos = () => {
     <div className="w-3/5 mx-auto my-16">
       <div data-aos="fade-up">
         <div>
-            <h1 className="text-center font-bold text-3xl my-8">Customar reviews</h1>
+          <h1 className="text-center font-bold text-3xl my-8">
+            Customar reviews
+          </h1>
           <div className="card card-side bg-base-100 shadow-xl">
             <figure className="w-1/2">
               <img
@@ -24,7 +26,7 @@ const Aos = () => {
               <p>
                 Super Toy Cars Offroad is an arcade racing game, developed and
                 published by Eclipse Games. In it, you drive miniature sized toy
-                cars in race ...
+                cars in race ...kjafk
               </p>
               <div className="card-actions justify-end"></div>
             </div>

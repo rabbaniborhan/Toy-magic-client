@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.age{
+    background-image: url("../src/assets/AgeBackground.jpeg");
+}

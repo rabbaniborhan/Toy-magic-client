@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext } from "react";
+import img from "../../../assets/toyeLogo.png"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -10,18 +11,18 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" bg-black text-white">
-      <div className="navbar justify-center w-4/5 mx-auto">
-        <div className="navbar-start">
-          <Link to="/" className="btn italic text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text btn-ghost normal-case text-2xl font-bold logo">
-          Toy Magic
+    <div className=" bg-pink-600 text-white font-semibold">
+      <div className="navbar  justify-between w-11/12  mx-10">
+        <div className=" ml-14">
+          <Link to="/" className="w-[90px]">
+          <img src={img} alt="" />
           </Link>
         </div>
-        <div className="navbar-center flex flex-col items-center justify-center md:flex-row gap-4">
+        <div className="  flex flex-col items-center justify-center md:flex-row gap-4">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+              isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : " py-2 px-3  hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
             }
           >
             Home
@@ -29,7 +30,7 @@ const Navbar = () => {
           <NavLink
             to="/alltoys"
             className={({ isActive }) =>
-              isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+              isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : "py-2 px-3  hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
             }
           >
             All Toys
@@ -39,7 +40,7 @@ const Navbar = () => {
               <NavLink
                 to="/mytoys"
                 className={({ isActive }) =>
-                  isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+                  isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : "py-2 px-3  hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
                 }
               >
                 My Toys
@@ -47,7 +48,7 @@ const Navbar = () => {
               <NavLink
                 to="/addtoys"
                 className={({ isActive }) =>
-                  isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+                  isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : "py-2 px-3  hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
                 }
               >
                 Add toy
@@ -57,7 +58,7 @@ const Navbar = () => {
           <NavLink
             to="/blogs"
             className={({ isActive }) =>
-              isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+              isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : "py-2 px-3  hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
             }
           >
             Blogs
@@ -66,21 +67,21 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive ? "text-pink-700 ml-4" : " from-indigo-600 ml-4"
+                isActive ? "py-2 px-3 bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 rounded-md ml-4" : "py-2 px-3   hover:bg-indigo-400 transition-all duration-500 rounded-md ml-4"
               }
             >
               Login
             </NavLink>
           )}
         </div>
-        <div className="navbar-end">
+        <div className="">
           {user && (
             <div className="flex items-center gap-4">
-              <button className="btn btn-primary" onClick={handleLogout}>
+              <button className=" py-2 px-3 rounded-md bg-indigo-400 hover:bg-indigo-500 transition-all duration-300 outline-none border-none" onClick={handleLogout}>
                 LogOut
               </button>
               <div className="avatar">
-                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="w-10 rounded-full ring ring-white  ">
                   <img src={user?.photoURL} title={user?.displayName} />
                 </div>
               </div>
